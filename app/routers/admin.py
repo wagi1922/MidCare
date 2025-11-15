@@ -50,3 +50,7 @@ def delete_question_endpoint(question_id: int, db: Session = Depends(get_db), ad
 def get_all_user_results(db: Session = Depends(get_db), admin: dict = ADMIN_ACCESS):
     # Mengambil semua hasil tes dari semua pengguna
     return db.query(models.TestResult).order_by(models.TestResult.date.desc()).all()
+
+@admin_router.get("/users", response_model=List[schemas.UserRead]) # Melihat semua user
+def get_all_users(db: Session = Depends(get_db), admin: dict = ADMIN_ACCESS):
+    return db.query(models.User).all()
