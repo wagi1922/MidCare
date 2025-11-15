@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+# MySQL Driver
+# mysqlclient 
+# Atau Anda bisa gunakan PyMySQL jika mysqlclient bermasalah:
+pymysql 
+
+# Untuk Otentikasi dan Hashing
+passlib[bcrypt]
+python-jose[cryptography]
+
+# Opsional: Jika Anda ingin manajemen setting dari file .env
+python-dotenv
