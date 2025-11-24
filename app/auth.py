@@ -9,8 +9,8 @@ from typing import Optional
 from jose import JWTError, jwt # type: ignore
 from passlib.context import CryptContext # type: ignore
 from fastapi.security import OAuth2PasswordBearer # type: ignore
-from fastapi.security.api_key import APIKeyHeader
-from fastapi import Depends, HTTPException, status
+from fastapi.security.api_key import APIKeyHeader # type: ignore
+from fastapi import Depends, HTTPException, status # type: ignore
 from datetime import datetime, timedelta
 
 from . import schemas, models
@@ -23,7 +23,7 @@ API_KEY = os.getenv("API_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/token") 
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login") 
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=True)
 auth_router = APIRouter(prefix="/api/auth", tags=["Authentication"])
@@ -84,7 +84,7 @@ def get_current_normal_user(current_user: dict = Depends(get_current_user)) -> d
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Akses ditolak: Hanya User")
     return current_user
 
-@auth_router.post("/token", response_model=schemas.TokenResponse)
+@auth_router.post("/login", response_model=schemas.TokenResponse)
 async def login_for_access_token(
     request: schemas.TokenRequest, 
     db: Session = Depends(get_db),
