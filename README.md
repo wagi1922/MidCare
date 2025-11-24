@@ -29,16 +29,28 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/Bhayazeed/GrootUIR-Rebuild.git
+    git clone https://github.com/wagi1922/MidCare.git
     ```
 
-2. Install dependencies:
+2. Activate the Virtual Environment:
 
    ```bash
-   composer install
+   .venv\Scripts\Activate.ps1
    ```
 
-3. Set up environment variables:
+3. Upgrade pip:
+
+   ```bash
+   python -m pip install --upgrade pip
+   ```
+   
+4. Install Packages:
+   
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+5. Set up environment variables:
    Create a `.env` file :
 
    ```bash
@@ -53,9 +65,9 @@
     MYSQL_DB=
    ```
 
-4. Run the application:
+7. Run the application:
    ```bash
-   composer artisan serve
+   uvicorn app.main:app --reload
    ```
 
 ## **Testing the API**
@@ -63,6 +75,6 @@
 Use Postman or any API testing tool to test the endpoints. Make sure to include the `Authorization` token and `x-api-key` in the headers for secure
 endpoints.
 
-**Postman Documentation:** https://documenter.getpostman.com/view/40883579/2sAYQWKZGB
+**Postman Documentation:** https://documenter.getpostman.com/view/40220961/2sB3dHWtVi
    
 
