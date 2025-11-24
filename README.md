@@ -10,20 +10,20 @@
 
 ## **Endpoints:**
 
-1. `/admin/login` (POST) = Log in an Admin with credentials.
-2. `/admin/logout` (POST) = Log out the current admin.
-3. `/admin/register` (POST) = Register a new admin account.
-4. `/activities` (GET) = Getting List of every activities.
-5. `/projects` (GET) = Getting List of every Projects.
-6. `/activities/{id_activity}` (GET) = Getting Detail of a specific activity by id.
-7. `/projects/{id_project}` (GET) = Getting Detail of a specific project by id.
-8. `/admin/activities` (POST) = Creating a new activity.
-9. `/admin/projects` (POST) = Creating a new project.
-10. `/admin/activities/{id_activity}` (POST/PUT) = Updating an existing activity.
-11. `/admin/projects/{id_project}` (POST/PUT) = Updating an existing project.
-12. `/admin/activities/{id_activity}` (DEL) = Deleting an existing activity.
-13. `/admin/projects/{id_project}` (DEL) = Deleting an existing project.
-
+1. `/api/auth/login` (POST) = Log in an Admin with credentials.
+2. `/api/auth/register` (POST) = Register a new user account.
+3. `/api/auth/adminreg` (POST) = Register a new admin account.
+4. `/api/admin/categories` (GET) = Get all data from categories.
+5. `/api/admin/categories` (POST) = Create a new categories.
+6. `/api/admin/questions` (GET) = Colect all questions.
+7. `/api/admin/questions` (POST) = Creat a new questons.
+8. `/api/admin/questions/{question_id}` (PUT) = Edit a data questions.
+9. `/api/admin/questions/{question_id}` (DELETE) = Delete a data questions.
+10. `/api/admin/users` (GET) = Get all user list data.
+11. `/api/admin/users/result` (GET) = Get all user result.
+12. `/api/user/test/questions` (GET) = Get test questions.
+13. `/api/user/test/submit` (POST) = Submit the test.
+14. `/api/user/result` (GET) = Get result data user.
 ## **Installation Instructions**
 
 1. Clone the repository:
@@ -39,16 +39,18 @@
    ```
 
 3. Set up environment variables:
-   Create a `.env` file with the following `.env.example` configuration:
+   Create a `.env` file :
 
    ```bash
-   API_KEY = "Your API KEY"
-   DB_CONNECTION=sqlite
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=laravel
-   DB_USERNAME=root
-   DB_PASSWORD=
+   # .env
+   SECRET_KEY=" "
+   API_KEY=" "
+    
+    # Kredensial MySQL
+    MYSQL_USER=
+    MYSQL_PASSWORD=
+    MYSQL_HOST=
+    MYSQL_DB=
    ```
 
 4. Run the application:
